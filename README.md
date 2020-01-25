@@ -9,5 +9,5 @@ Create an `ini` file with Ansible inventory, e.g.
 ``` 
 and run it like this to apply configuration from `sway-desktop.yml` to the `desktop` machine while becoming (`-b`) the root user and asking for the sudo password (`-K`) of `myawesomeusername`:
 ```
-$ ansible-playbook sway-desktop.yml -i ../inventory -b -K
+$ ansible-playbook sway-desktop.yml -i private/inventory --extra-vars "@private/vars.yml" -b -K
 ```

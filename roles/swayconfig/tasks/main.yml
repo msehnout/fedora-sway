@@ -1,0 +1,18 @@
+---
+- name: Create config.d
+  file:
+    path: "{{ config_d_directory }}"
+    state: directory
+    owner: "{{ config_owner }}"
+    group: "{{ config_group }}"
+- name: Include config.d in the main config file
+  lineinfile:
+    path: "{{ config_file }}"
+    line: "include {{ config_d_directory }}/*"
+    state: present
+- name: Make the windows borderless
+  copy:
+    src: borderless
+    dest: "{{ config_d_directory }}/borderless"
+    owner: "{{ config_owner }}"
+    group: "{{ config_group }}"

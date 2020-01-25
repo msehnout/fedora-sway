@@ -6,6 +6,8 @@
     - alacritty
     # Install Sway and create a user service for it
     - sway
+    # Apply customizations
+    - swayconfig
     # - role: foo_app_instance
     #   vars:
     #     dir: '/opt/a'

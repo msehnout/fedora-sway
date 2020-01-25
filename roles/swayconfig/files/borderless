@@ -1,0 +1,4 @@
+titlebar_border_thickness 0
+default_border none
+smart_gaps on
+gaps inner 3
