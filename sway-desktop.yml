@@ -1,0 +1,16 @@
+---
+- hosts: desktop
+  roles:
+    # Alacritty is now the recommended terminal emulator for Sway
+    # https://github.com/swaywm/sway/releases/tag/1.4
+    - alacritty
+    # Install Sway and create a user service for it
+    - sway
+    # - role: foo_app_instance
+    #   vars:
+    #     dir: '/opt/a'
+    #     app_port: 5000
+    # - role: foo_app_instance
+    #   vars:
+    #     dir: '/opt/b'
+    #     app_port: 5001

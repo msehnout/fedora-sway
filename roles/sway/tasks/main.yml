@@ -1,0 +1,21 @@
+- name: Install sway module
+  dnf:
+    name:
+      - '@sway:rolling/full'
+      # For audio control
+      - pavucontrol
+      # Screeen brightness
+      - light
+    state: present
+- name: Create user service for sway
+  block:
+    - copy:
+        src: sway.service
+        dest: /etc/systemd/user/sway.service
+    - copy:
+        src: sway-service.sh
+        dest: /usr/local/bin/sway-service.sh
+        mode: u=rwx,g=rx,o=rx
+    - copy:
+        src: sway-session.desktop
+        dest: /usr/share/wayland-sessions/sway-session.desktop
