@@ -5,6 +5,16 @@
     state: directory
     owner: "{{ config_owner }}"
     group: "{{ config_group }}"
+- name: Check that the sway config file exists
+  stat:
+    path: "{{ config_file }}"
+  register: stat_result
+- name: Create the config file, if it doesn't exist already
+  copy:
+    src: /etc/sway/config
+    dest: "{{ config_file }}"
+    remote_src: yes
+  when: stat_result.stat.exists == False
 - name: Include config.d in the main config file
   lineinfile:
     path: "{{ config_file }}"
