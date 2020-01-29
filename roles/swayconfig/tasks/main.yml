@@ -13,6 +13,8 @@
   copy:
     src: /etc/sway/config
     dest: "{{ config_file }}"
+    owner: "{{ config_owner }}"
+    group: "{{ config_group }}"
     remote_src: yes
   when: stat_result.stat.exists == False
 - name: Include config.d in the main config file
